@@ -7,8 +7,8 @@ RUN apt-get update && \
     apt-get clean && \ 
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/JihyongOh/DeMFI 
-RUN curl https://pyenv.run | bash && \
+RUN git clone https://github.com/rickie95/DeMFI && \
+    curl https://pyenv.run | bash && \
     export PYENV_ROOT="$HOME/.pyenv" && \
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" && \
     eval "$(pyenv init -)" && \
@@ -17,6 +17,3 @@ RUN curl https://pyenv.run | bash && \
     pip install --upgrade pip && \
     pip install -r requirements.txt
 
-# RUN cd DeMFI && \
-#     python3 -m pip install --upgrade pip && \
-#     python3 -m pip install -r requirements.txt
